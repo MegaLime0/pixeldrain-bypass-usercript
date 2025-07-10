@@ -222,7 +222,7 @@
         popupBox.style.color = "#d7dde8";
         popupBox.style.borderRadius = "10px";
         popupBox.style.width = "30%";
-        popupBox.style.height = "auto";
+        popupBox.style.height = "90%";
         popupBox.style.maxWidth = "600px";
 
         button.addEventListener('click', handleButtonClick);
