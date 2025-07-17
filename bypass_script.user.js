@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Pixeldrain Download Bypass
 // @namespace    http://tampermonkey.net/
-// @version      1.6.3
+// @version      1.6.4
 // @description  Bypass Pixeldrain Download Limit
 // @author       MegaLime0, honey, Nurarihyon
 // @match        https://pixeldrain.com/*
@@ -73,6 +73,7 @@
           // GM_openInTab(link);  Old way of downloading
           const a = document.createElement("a");
           a.href = link;
+          a.download = '';
           a.click();
     }
 
