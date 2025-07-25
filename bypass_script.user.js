@@ -1,10 +1,11 @@
 // ==UserScript==
 // @name         Pixeldrain Download Bypass
 // @namespace    http://tampermonkey.net/
-// @version      1.6.4
+// @version      1.6.5
 // @description  Bypass Pixeldrain Download Limit
 // @author       MegaLime0, honey, Nurarihyon
 // @match        https://pixeldrain.com/*
+// @match        https://pixeldrain.net/*
 // @match        https://cdn.pd8.workers.dev/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=pixeldrain.com
 // @grant        GM_openInTab
@@ -23,7 +24,7 @@
         const currentUrl = window.location.href;
 
         if (urlType == "file") {
-            const id = currentUrl.replace("https://pixeldrain.com/u/", "");
+            const id = currentUrl.replace(`${location.origin}/u/`, "");
             const alteredUrl = bypassUrl + id;
 
             return alteredUrl;
@@ -55,12 +56,12 @@
     function handleButtonClick() {
         const currentUrl = window.location.href;
 
-        if (currentUrl.includes("https://pixeldrain.com/u/")) {
+        if (currentUrl.includes(`${location.origin}/u/`)) {
             const alteredUrl = getBypassUrls("file");
             startDownload(alteredUrl);
         }
 
-        if (currentUrl.includes("https://pixeldrain.com/l/")) {
+        if (currentUrl.includes(`${location.origin}/l/`)) {
             const links = getBypassUrls("gallery").bypassUrlList;
 
             links.forEach((link) => {
@@ -94,7 +95,7 @@
 
         const currentUrl = window.location.href;
 
-        if (currentUrl.includes("https://pixeldrain.com/u/")) {
+        if (currentUrl.includes(`${location.origin}/u/`)) {
             const alteredUrl = getBypassUrls("file");
             const urlElement = document.createElement("a");
             urlElement.href = alteredUrl;
@@ -102,7 +103,7 @@
             popupBox.appendChild(urlElement);
         }
 
-        if (currentUrl.includes("https://pixeldrain.com/l/")) {
+        if (currentUrl.includes(`${location.origin}/l/`)) {
             let result = getBypassUrls("gallery");
             let bypassLinks = result.bypassUrlList;
             let bypassNames = result.bypassUrlNames;
@@ -187,7 +188,7 @@
         popupBox.style.display = 'block';
     }
 
-    if (window.location.href.includes('pixeldrain.com')) {
+    if (/pixeldrain\.(com|net)$/.test(window.location.hostname)) {
         const button = document.createElement("button");
         const downloadIcon = document.createElement("a");
         downloadIcon.className = "icon";
