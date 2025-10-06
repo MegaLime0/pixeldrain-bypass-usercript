@@ -16,7 +16,7 @@
 (function() {
     'use strict';
 
-    const bypassUrl = "https://pd.cybar.xyz/";
+    const bypassUrl = "https://pd.1drv.eu.org/";
     const idRegex = /\/api\/file\/(\w+)\//;
 
 
