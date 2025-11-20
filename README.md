@@ -1,5 +1,9 @@
 # Pixeldrain Download Limit Bypass
 
+> [!Warning]
+> Get the better version from the official bypass website. I hope it was useful while it lasted.
+> Huge thanks to everyone who added improvements and gave feedback - it was a pleasure.
+
 ### Install
 You can install the extension using this [link](https://github.com/MegaLime0/pixeldrain-bypass-usercript/raw/refs/heads/main/bypass_script.user.js)
 
